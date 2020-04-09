@@ -146,6 +146,8 @@ if test -e OpenSCToken; then
 	else
 		cd OpenSC && git pull && cd ..
 	fi
+	ls
+	ls ..
 	if ! test -e openssl; then
 		git clone --depth=1 file://$PWD/../openssl
 	else
