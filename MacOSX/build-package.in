@@ -146,18 +146,8 @@ if test -e OpenSCToken; then
 	else
 		cd OpenSC && git pull && cd ..
 	fi
-	ls
-	ls ..
-	if ! test -e openssl; then
-		git clone --depth=1 file://$PWD/../openssl
-	else
-		cd openssl && git pull && cd ..
-	fi
-	if ! test -e openpace; then
-		git clone --depth=1 file://$PWD/../openpace
-	else
-		cd openpace && git pull && cd ..
-	fi
+	ln -sf $BUILDPATH/openssl_bin/$PREFIX build/openssl
+	ln -sf $BUILDPATH/openpace_bin/$PREFIX build/openssl
 	BP=${BUILDPATH}
 	. ./bootstrap
 	BUILDPATH=${BP}
